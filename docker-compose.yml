@@ -75,7 +75,9 @@ services:
       "-d", "dev.produksi.jagaamansejahtera.id",
       "--agree-tos",
       "--email", "ali@jatra.co",
-      "--no-eff-email"
+      "--no-eff-email",
+      "--non-interactive",
+      "--force-renewal"
     ]
 
 networks:
