@@ -65,7 +65,13 @@ services:
       - certbot-etc:/etc/letsencrypt
       - certbot-var:/var/lib/letsencrypt
       - ./nginx/html:/var/www/html
-    entrypoint: ""
+    depends_on:
+      - nginx
+    command: certonly --webroot --webroot-path=/var/www/html \
+             -d adminjatra.jagaamansejahtera.id \
+             -d produksi.jagaamansejahtera.id \
+             -d dev.produksi.jagaamansejahtera.id \
+             --agree-tos --email ali@jatra.co --no-eff-email
 
 networks:
   jatra-net:
