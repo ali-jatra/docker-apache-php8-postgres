@@ -19,9 +19,9 @@ services:
     image: postgres:15
     restart: always
     environment:
-      POSTGRES_USER: your_username
-      POSTGRES_PASSWORD: your_password
-      POSTGRES_DB: your_database
+      POSTGRES_USER: PGSQL_USERNAME
+      POSTGRES_PASSWORD: PGSQL_PASSWORD
+      POSTGRES_DB: PGSQL_DATABASE
     ports:
       - 9906:5432
     volumes:
