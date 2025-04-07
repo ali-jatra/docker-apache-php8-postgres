@@ -12,7 +12,9 @@ services:
       - ./www:/var/www/html/
     ports:
       # - 8080:80
-      - 443:443
+      # - 443:443
+    networks:
+      - jatra-net
 
   database:
     container_name: database
@@ -26,6 +28,8 @@ services:
       - 9906:5432
     volumes:
       - ./dbdata:/var/lib/postgresql/data
+    networks:
+      - jatra-net
 
   adminer:
     container_name: adminer
@@ -36,6 +40,8 @@ services:
     depends_on:
       - database
     command: php -S 0.0.0.0:8080 -t /var/www/html
+    networks:
+      - jatra-net
 
   nginx:
     container_name: nginx
@@ -49,5 +55,11 @@ services:
     depends_on:
       - webserver
       - adminer
+    networks:
+      - jatra-net
+
+networks:
+  jatra-net:
+    driver: bridge
 
 
