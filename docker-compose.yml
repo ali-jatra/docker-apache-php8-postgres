@@ -58,11 +58,7 @@ services:
     networks:
       - jatra-net
 
-networks:
-  jatra-net:
-    driver: bridge
-
-certbot:
+  certbot:
     image: certbot/certbot
     container_name: certbot
     volumes:
@@ -70,6 +66,12 @@ certbot:
       - certbot-var:/var/lib/letsencrypt
       - ./nginx/html:/var/www/html
     entrypoint: ""
+
+networks:
+  jatra-net:
+    driver: bridge
+
+
 volumes:
   certbot-etc:
   certbot-var:
