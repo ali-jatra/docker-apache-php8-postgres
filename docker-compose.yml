@@ -1,0 +1,28 @@
+version: "3.8"
+services:
+  webserver:
+    container_name: webserver
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    depends_on:
+      - database
+    volumes:
+      - ./www:/var/www/html/
+    ports:
+      - 80:80
+      - 443:443
+
+  database:
+    container_name: database
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: your_username
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: your_database
+    ports:
+      - 9906:5432
+    volumes:
+      - ./dbdata:/var/lib/postgresql/data
