@@ -67,16 +67,20 @@ services:
       - ./nginx/html:/var/www/html
     depends_on:
       - nginx
-    command: certonly --webroot --webroot-path=/var/www/html \
-             -d adminjatra.jagaamansejahtera.id \
-             -d produksi.jagaamansejahtera.id \
-             -d dev.produksi.jagaamansejahtera.id \
-             --agree-tos --email ali@jatra.co --no-eff-email
+    command: [
+      "certonly", "--webroot",
+      "--webroot-path=/var/www/html",
+      "-d", "adminjatra.jagaamansejahtera.id",
+      "-d", "produksi.jagaamansejahtera.id",
+      "-d", "dev.produksi.jagaamansejahtera.id",
+      "--agree-tos",
+      "--email", "ali@jatra.co",
+      "--no-eff-email"
+    ]
 
 networks:
   jatra-net:
     driver: bridge
-
 
 volumes:
   certbot-etc:
