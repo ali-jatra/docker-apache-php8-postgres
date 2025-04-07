@@ -61,7 +61,8 @@ services:
       - certbot-var:/var/lib/letsencrypt
       - ./nginx/html:/var/www/html
     depends_on:
-      - webserver
+      - webserver_prod
+      - webserver_dev
       - adminer
     networks:
       - jatra-net
