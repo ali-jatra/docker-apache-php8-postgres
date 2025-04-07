@@ -10,9 +10,6 @@ services:
       - database
     volumes:
       - ./www:/var/www/html/
-    ports:
-      # - 8080:80
-      # - 443:443
     networks:
       - jatra-net
 
