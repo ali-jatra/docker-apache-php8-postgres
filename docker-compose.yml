@@ -19,9 +19,9 @@ services:
     image: postgres:15
     restart: always
     environment:
-      POSTGRES_USER: PGSQL_USERNAME
-      POSTGRES_PASSWORD: PGSQL_PASSWORD
-      POSTGRES_DB: PGSQL_DATABASE
+      POSTGRES_USER: jatra
+      POSTGRES_PASSWORD: Jatra@2025
+      POSTGRES_DB: db_produksi
     ports:
       - 9906:5432
     volumes:
@@ -36,4 +36,18 @@ services:
     depends_on:
       - database
     command: php -S 0.0.0.0:8080 -t /var/www/html
+
+  nginx:
+    container_name: nginx
+    image: nginx:latest
+    restart: always
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - webserver
+      - adminer
+
 
