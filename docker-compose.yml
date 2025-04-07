@@ -1,17 +1,25 @@
 version: "3"
 services:
-  webserver:
-    container_name: webserver
-    build:
-      context: .
-      dockerfile: Dockerfile
-    restart: always
-    depends_on:
-      - database
-    volumes:
-      - ./www:/var/www/html/
-    networks:
-      - jatra-net
+  webserver_prod:
+      container_name: webserver_prod
+      build:
+        context: .
+        dockerfile: Dockerfile
+      volumes:
+        - ./www/app-produksi/production:/var/www/html/
+      networks:
+        - jatra-net
+
+  webserver_dev:
+      container_name: webserver_dev
+      build:
+        context: .
+        dockerfile: Dockerfile
+      volumes:
+        - ./www/app-produksi/development:/var/www/html/
+      networks:
+        - jatra-net
+
 
   database:
     container_name: database
