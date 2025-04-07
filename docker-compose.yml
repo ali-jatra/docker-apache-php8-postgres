@@ -70,8 +70,6 @@ certbot:
       - certbot-var:/var/lib/letsencrypt
       - ./nginx/html:/var/www/html
     entrypoint: ""
-
-
 volumes:
   certbot-etc:
   certbot-var:
