@@ -7,8 +7,6 @@ services:
         dockerfile: Dockerfile
       volumes:
         - ./www/app-produksi/production:/var/www/html/
-      ports:
-        - 5173:5173
       networks:
         - jatra-net
 
@@ -21,7 +19,6 @@ services:
         - ./www/app-produksi/development:/var/www/html/
       networks:
         - jatra-net
-
 
   database:
     container_name: database
