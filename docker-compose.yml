@@ -1,28 +1,5 @@
 version: "3"
 services:
-
-  node_prod:
-    container_name: node_prod
-    image: node:22
-    working_dir: /app
-    volumes:
-      - ./www/app-produksi/production:/app
-    ports:
-      - "5174:5173"
-    networks:
-      - jatra-net
-
-  node_dev:
-    container_name: node_dev
-    image: node:22
-    working_dir: /app
-    volumes:
-      - ./www/app-produksi/development:/app
-    ports:
-      - "5173:5173"
-    networks:
-      - jatra-net
-
   webserver_prod:
       container_name: webserver_prod
       build:
@@ -30,6 +7,8 @@ services:
         dockerfile: Dockerfile
       volumes:
         - ./www/app-produksi/production:/var/www/html/
+      ports:
+        - 5173:5173
       networks:
         - jatra-net
 
