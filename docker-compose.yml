@@ -89,6 +89,16 @@ services:
       "--force-renewal"
     ]
 
+  node:
+    container_name: node
+    image: node:18
+    working_dir: /app
+    volumes:
+      - ./www/app-produksi/production:/app
+    networks:
+      - jatra-net 
+
+
 networks:
   jatra-net:
     driver: bridge
