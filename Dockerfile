@@ -37,4 +37,6 @@ RUN curl -sS https://getcomposer.org/installer | php \
 # Cleanup
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
+RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
+
 EXPOSE 80 443
