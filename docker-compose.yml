@@ -3,7 +3,7 @@ services:
 
   node_prod:
     container_name: node_prod
-    image: node:22.3.1
+    image: node:22
     working_dir: /app
     volumes:
       - ./www/app-produksi/production:/app
@@ -14,7 +14,7 @@ services:
 
   node_dev:
     container_name: node_dev
-    image: node:22.3.1
+    image: node:22
     working_dir: /app
     volumes:
       - ./www/app-produksi/development:/app
