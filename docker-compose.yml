@@ -7,6 +7,7 @@ services:
         dockerfile: Dockerfile
       volumes:
         - ./www/app-produksi/production:/var/www/html/
+        - ./www/app-produksi/production/public:/var/www/html/public
       networks:
         - jatra-net
 
