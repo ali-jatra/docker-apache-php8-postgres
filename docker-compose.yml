@@ -25,7 +25,7 @@ services:
     build:
       context: ./www/app-produksi/development
       dockerfile: Dockerfile.vite
-    working_dir: /var/www/html/app-produksi/development
+    working_dir: /var/www/html
     ports:
       - "5174:5173"
     volumes:
