@@ -23,7 +23,7 @@ services:
   vite_stagging:
     container_name: vite_stagging
     build:
-      context: ./www/app-produksi/development:/var/www/html/
+      context: ./www/app-produksi/development
       dockerfile: Dockerfile.vite
     working_dir: /var/www/html
     ports:
