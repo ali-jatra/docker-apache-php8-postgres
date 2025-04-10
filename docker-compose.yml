@@ -20,20 +20,20 @@ services:
       networks:
         - jatra-net
 
-  vite_stagging:
-    container_name: vite_stagging
-    build:
-      context: ./www/app-produksi/development
-      dockerfile: Dockerfile.vite
-    working_dir: /var/www/html
-    ports:
-      - "5174:5173"
-    volumes:
-      - ./www/app-produksi/development:/var/www/html
-    networks:
-      - jatra-net
-    depends_on:
-      - webserver_dev
+  # vite_stagging:
+  #   container_name: vite_stagging
+  #   build:
+  #     context: ./www/app-produksi/development
+  #     dockerfile: Dockerfile.vite
+  #   working_dir: /var/www/html
+  #   ports:
+  #     - "5174:5173"
+  #   volumes:
+  #     - ./www/app-produksi/development:/var/www/html
+  #   networks:
+  #     - jatra-net
+  #   depends_on:
+  #     - webserver_dev
 
   database:
     container_name: database
