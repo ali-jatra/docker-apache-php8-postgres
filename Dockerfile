@@ -39,4 +39,8 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
+# Set PHP memory limit
+RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini
+
 EXPOSE 80 443
+
