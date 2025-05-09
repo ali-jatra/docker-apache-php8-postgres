@@ -28,6 +28,7 @@ services:
       POSTGRES_USER: jatra
       POSTGRES_PASSWORD: Jatra@2025
       POSTGRES_DB: db_produksi
+    command: ["postgres", "-c", "max_locks_per_transaction=256"]
     ports:
       - 9906:5432
     volumes:
