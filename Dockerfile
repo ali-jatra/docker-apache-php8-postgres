@@ -42,5 +42,9 @@ RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /et
 # Set PHP memory limit
 RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
+# Set PHP execution time limit
+RUN echo "max_execution_time = 120" > /usr/local/etc/php/conf.d/execution-time.ini
+
+
 EXPOSE 80 443
 
