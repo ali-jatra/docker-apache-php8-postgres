@@ -42,5 +42,13 @@ RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /et
 # Set PHP memory limit
 RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini
 
+# Salin konfigurasi upload limit Apache
+COPY apache/upload_limit.conf /etc/apache2/conf-available/upload_limit.conf
+
+# Aktifkan konfigurasi upload limit
+RUN a2enconf upload_limit
+
+
+
 EXPOSE 80 443
 
