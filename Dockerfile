@@ -40,10 +40,13 @@ RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 RUN sed -i 's|DocumentRoot /var/www/html|DocumentRoot /var/www/html/public|' /etc/apache2/sites-available/000-default.conf
 
 # Set PHP memory limit
-RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini
-
-# Set PHP execution time limit
-RUN echo "max_execution_time = 120" > /usr/local/etc/php/conf.d/execution-time.ini
+# Tingkatkan batasan resource PHP
+RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini \
+ && echo "max_execution_time = 300" > /usr/local/etc/php/conf.d/execution-time.ini \
+ && echo "max_input_time = 300" > /usr/local/etc/php/conf.d/input-time.ini \
+ && echo "upload_max_filesize = 100M" > /usr/local/etc/php/conf.d/upload-size.ini \
+ && echo "post_max_size = 100M" > /usr/local/etc/php/conf.d/post-size.ini \
+ && echo "Timeout 300" >> /etc/apache2/apache2.conf
 
 
 EXPOSE 80 443
