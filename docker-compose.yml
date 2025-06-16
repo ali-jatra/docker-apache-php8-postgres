@@ -36,17 +36,17 @@ services:
     networks:
       - jatra-net
 
-  adminer:
-    container_name: adminer
-    image: adminer
-    restart: always
-    ports:
-      - 8081:8080
-    depends_on:
-      - database
-    command: php -S 0.0.0.0:8080 -t /var/www/html
-    networks:
-      - jatra-net
+  # adminer:
+  #   container_name: adminer
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8081:8080
+  #   depends_on:
+  #     - database
+  #   command: php -S 0.0.0.0:8080 -t /var/www/html
+  #   networks:
+  #     - jatra-net
 
   nginx:
     container_name: nginx
@@ -62,7 +62,7 @@ services:
     depends_on:
       - webserver_prod
       - webserver_dev
-      - adminer
+      # - adminer
     networks:
       - jatra-net
 
