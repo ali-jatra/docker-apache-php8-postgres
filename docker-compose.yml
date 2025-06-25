@@ -19,6 +19,15 @@ services:
         - ./www/app-produksi/development:/var/www/html/
       networks:
         - jatra-net
+  dashboard_prod:
+      container_name: dashboard_prod
+      build:
+        context: .
+        dockerfile: Dockerfile
+      volumes:
+        - ./www/app-dashboard/production:/var/www/html/
+      networks:
+        - jatra-net
 
   database:
     container_name: database
