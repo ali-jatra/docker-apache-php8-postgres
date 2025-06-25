@@ -61,7 +61,7 @@ services:
     depends_on:
       - webserver_prod
       - webserver_dev
-      # - dashboard_prod
+      - dashboard_prod
     networks:
       - jatra-net
 
