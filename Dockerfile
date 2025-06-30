@@ -48,6 +48,8 @@ RUN echo "memory_limit = 512M" > /usr/local/etc/php/conf.d/memory-limit.ini \
  && echo "post_max_size = 100M" > /usr/local/etc/php/conf.d/post-size.ini \
  && echo "Timeout 300" >> /etc/apache2/apache2.conf
 
+ # COPY custom php.ini dari host ke container
+COPY custom-php.ini /usr/local/etc/php/conf.d/
 
 EXPOSE 80 443
 
