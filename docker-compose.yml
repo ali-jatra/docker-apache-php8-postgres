@@ -47,6 +47,22 @@ services:
     networks:
       - jatra-net
 
+  database_dev:
+    container_name: database_dev
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: jatra_dev
+      POSTGRES_PASSWORD: JatraDev@2025
+      POSTGRES_DB: db_produksi_dev
+    command: ["postgres", "-c", "max_locks_per_transaction=256"]
+    ports:
+      - 9907:5432
+    volumes:
+      - ./dbdata_dev:/var/lib/postgresql/data
+    networks:
+      - jatra-net
+      
   nginx:
     container_name: nginx
     image: nginx:latest
