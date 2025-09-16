@@ -10,15 +10,15 @@ services:
       networks:
         - jatra-net
 
-  webserver_dev:
-      container_name: webserver_dev
-      build:
-        context: .
-        dockerfile: Dockerfile
-      volumes:
-        - ./www/app-produksi/development:/var/www/html/
-      networks:
-        - jatra-net
+  # webserver_dev:
+  #     container_name: webserver_dev
+  #     build:
+  #       context: .
+  #       dockerfile: Dockerfile
+  #     volumes:
+  #       - ./www/app-produksi/development:/var/www/html/
+  #     networks:
+  #       - jatra-net
 
   dashboard_prod:
     container_name: dashboard_prod
